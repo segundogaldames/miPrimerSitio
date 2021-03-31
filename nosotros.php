@@ -14,7 +14,9 @@
     <!-- cabecera del sitio y menu de navegacion -->
     <header>
         <h1>Cabecera</h1>
+        <!-- navegador principal del sitio -->
         <?php include('partials/menu.php'); ?>
+        <!-- fin navegador -->
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
