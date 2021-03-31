@@ -20,11 +20,15 @@
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <h1>Título De  Mi Primera Página</h1>
-        <h4>Este es un subtítulo</h4>
-        contenido principal
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit excepturi, perferendis cumque iste sunt corrupti quia doloremque quidem autem laudantium tempore accusamus saepe magni repellat et tenetur exercitationem consectetur aliquid?</p>
-        <a href="#">Ver Más</a>
+        <h1>Nuestra Empresa</h1>
+        <!-- lado derecho de la pagina -->
+        <article style="with:40%;float:left">
+            lado derecho
+        </article>
+        <!-- lado izquierdo de la pagina -->
+        <article style="with:60%;float:left">
+            lado izquierdo
+        </article>
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>

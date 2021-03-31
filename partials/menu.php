@@ -2,10 +2,10 @@
 <nav>
     <ul>
         <li>
-            <a href="#">Inicio</a>
+            <a href="index.php">Home</a>
         </li>
         <li>
-            <a href="#">Nosotros</a>
+            <a href="nosotros.php">Nosotros</a>
         </li>
         <li>
             <a href="#">Contacto</a>
