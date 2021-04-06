@@ -1,3 +1,12 @@
+footer{
+    width: 100%;
+    float: left;
+    height: 80px;
+    background-color: rgba(245, 240, 240, 0.733);
+}
+footer p{
+    color:dimgrey;
+}
 h1,h2,h3,h4,h5,h6{
     color: dodgerblue;
 }
@@ -35,4 +44,32 @@ section{
 section h1{
     text-align: center;
     font-size: 24px;
+}
+
+/* clases generales del sitio */
+.copyright{
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 35px;
+}
+.derecho, .izquierdo{
+    float: left;
+}
+.derecho{
+    width: 30%;
+}
+.izquierdo{
+    width: 70%;
+}
+.texto, video{
+    float: left;
+    width: 100%;
+}
+.texto{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.video{
+    position: relative;
 }

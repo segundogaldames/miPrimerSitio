@@ -14,6 +14,7 @@
     <!-- cabecera del sitio y menu de navegacion -->
     <header>
         <h1>Cabecera</h1>
+        <!-- llamada a sitio menu.php -->
         <?php include('partials/menu.php'); ?>
     </header>
     <!-- cuerpo central de la pagina web -->
@@ -26,9 +27,7 @@
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>
-        <h1>Hola</h1>
-        <p>Politicas de privacidad</p>
-        pie de pagina
+        <?php include('partials/footer.php'); ?>
     </footer> 
     
 </body>
