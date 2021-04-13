@@ -28,7 +28,7 @@
         <!-- lado izquierdo de la pagina -->
         <article class="izquierdo">
             <div class="texto">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis corrupti doloremque id error, maiores magni aliquid nobis aspernatur veritatis facilis eaque quis ad quod ea odit! Omnis, ab possimus?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing amet consectetur adipisicing elit. Similique, corporis corrupti doloremque id error, maiores magni aliquid nobis aspernatur veritatis facilis eaque quis ad quod ea odit! Omnis, ab possimus?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis corrupti doloremque id error, maiores magni aliquid nobis aspernatur veritatis facilis eaque quis ad quod ea odit! Omnis, ab possimus?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis corrupti doloremque id error, maiores magni aliquid nobis aspernatur veritatis facilis eaque quis ad quod ea odit! Omnis, ab possimus?</p>
             </div>

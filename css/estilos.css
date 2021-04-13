@@ -70,6 +70,12 @@ section h1{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.texto p{
+    line-height: 22px;
+    font-size: 18px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .video{
     position: relative;
 }
