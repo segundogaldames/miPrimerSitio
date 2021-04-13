@@ -1,5 +1,6 @@
 <?php 
 
+//herencia
 class Conexion extends PDO
 {
         //atributos de la clase conexion
@@ -10,6 +11,7 @@ class Conexion extends PDO
 	private $charset = 'utf8';
 
         //constructor de la clase conexion
+        //los constructores de clase permiten inicializar por defecto atributos y/o metodos de una clase
 	public function __construct(){
                 //constructor de clase padre llamada PDO
                 parent::__construct(
