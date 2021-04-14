@@ -21,12 +21,20 @@
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <h1>Nuevo Rol</h1>
-        <form action="" method="post">
-            <label for="">Nombre:</label><br>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre del rol"><br>
-            <button type="submit">Guardar</button>
-        </form>
+        <div class="formulario">
+            <h1>Nuevo Rol</h1>
+            <form action="" method="post">
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Ingrese el nombre del rol" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                
+            </form>
+        </div>
+        
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>

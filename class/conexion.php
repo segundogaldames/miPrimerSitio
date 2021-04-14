@@ -7,7 +7,7 @@ class Conexion extends PDO
 	private $host = 'localhost';
 	private $base = 'miprimersitio';
 	private $user = 'root';
-	private $pass = 'root'; //el password para usuarios de Windows es vacio
+	private $pass = 'root'; //el password para usuarios de Windows es vacio ''
 	private $charset = 'utf8';
 
         //constructor de la clase conexion

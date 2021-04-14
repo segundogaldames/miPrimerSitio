@@ -9,6 +9,7 @@ footer p{
 }
 h1,h2,h3,h4,h5,h6{
     color: dodgerblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 header{
     float:left;
@@ -17,24 +18,8 @@ header{
     background-color: rgba(245, 240, 240, 0.733);
     margin-bottom: 20px;
 }
-nav{
-    margin-top: 35px;
-    height: 70px;
-    background-color: rgba(229, 229, 241, 0.452);
-}
-nav ul li{
-    margin-left: 20px;
-}
-nav ul li a{
-    float: left;
-    color:rgb(30, 30, 31);
-    font-size: 24px;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-nav ul li a:hover{
-    color: darkgoldenrod;
+label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 section{
     margin-left: 20px;
@@ -47,6 +32,17 @@ section h1{
 }
 
 /* clases generales del sitio */
+.btn{
+    width: 120px;
+    height: 40px;
+    border: 0;
+    text-align: center;
+    border-radius: 5px;
+}
+.btn-primary{
+    background-color: dodgerblue;
+    color: white;
+}
 .copyright{
     font-size: 18px;
     font-style: italic;
@@ -58,6 +54,23 @@ section h1{
 }
 .derecho{
     width: 30%;
+}
+.formulario{
+    float: left;
+    width: 50%;
+    margin-left: 25%;
+}
+.form-control{
+    float: left;
+    width: 100%;
+    height: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-color: #73B5E1;
+    border-radius: 5px;
+}
+.form-group{
+    margin-bottom: 10px;
 }
 .izquierdo{
     width: 70%;
@@ -79,3 +92,79 @@ section h1{
 .video{
     position: relative;
 }
+
+/* menu */
+#menu{
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#menu ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+   
+   /* items del menu */
+   
+   #menu ul li {
+    background-color: rgba(245, 240, 240, 0.733);
+   }
+   
+   /* enlaces del menu */
+   
+#menu ul a {
+    display:block;
+    color: black;
+    text-decoration:none;
+    font-weight:400;
+    font-size:24px;
+    padding:10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing:1px;
+}
+   
+   /* items del menu */
+   
+#menu ul li {
+    position:relative;
+    float:left;
+    margin:0;
+    padding:0;
+   }
+   
+   /* efecto al pasar el ratón por los items del menu */
+   
+#menu ul li a:hover {
+    color:#f8c08c;
+   }
+   /* menu desplegable */
+
+#menu ul ul {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#eee;
+    padding:0;
+   }
+   
+   /* items del menu desplegable */
+   
+   #menu ul ul li {
+    float:none;
+    width:220px
+   }
+   
+   /* enlaces de los items del menu desplegable */
+   
+   #menu ul ul a {
+    line-height:120%;
+    padding:10px 15px;
+   }
+   
+   /* items del menu desplegable al pasar el ratón */
+   
+   #menu ul li:hover > ul {
+    display:block;
+   }
