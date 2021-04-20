@@ -43,6 +43,9 @@ section h1{
     background-color: dodgerblue;
     color: white;
 }
+.btn-primary:hover{
+    background-color: cornflowerblue;
+}
 .copyright{
     font-size: 18px;
     font-style: italic;
@@ -74,6 +77,11 @@ section h1{
 }
 .izquierdo{
     width: 70%;
+}
+.text-danger{
+    color:crimson;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
 }
 .texto, video{
     float: left;
@@ -118,7 +126,7 @@ section h1{
     color: black;
     text-decoration:none;
     font-weight:400;
-    font-size:24px;
+    font-size:18px;
     padding:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing:1px;
