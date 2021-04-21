@@ -1,4 +1,10 @@
 <?php
+    //establecer la conexion con la base de datos
+    require('class/rolModel.php');
+
+    //creamos un objeto o instancia de la clase rolModel
+    $roles = new rolModel;
+
     //validamos que el formulario sea enviado via post
     if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
 
@@ -8,6 +14,11 @@
         //validar que la variable no este vacia
         if (!$nombre) {
             $msg = 'Debe ingresar el nombre del rol';
+        }else {
+            # verificar que el dato no este registrado en la tabla roles
+            $row = $roles->getRolNombre($nombre);
+
+            print_r($row);exit;
         }
 
         //la funcion print_r permite imprimir datos a manera de prueba

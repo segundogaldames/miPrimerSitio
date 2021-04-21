@@ -5,8 +5,18 @@ class rolModel extends Modelo
 {
     public function __construct()
     {
-        //utilizar el constructor de la clase Modelo
+        //utilizar el constructor de la clase Modelo 
         parent::__construct();
+    }
+
+    //metodo que consulta a la tabla roles por un rol ingresado
+    public function getRolNombre($nombre)
+    {
+        $rol = $this->_db->prepare("SELECT id FROM roles WHERE nombre = ?");
+        $rol->bindParam(1, $nombre);
+        $rol->execute();
+
+        return $rol->fetch(); //vamos a recuperar un rol
     }
 
     //crear un metodo que inserte roles en la tabla roles
