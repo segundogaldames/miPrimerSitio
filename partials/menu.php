@@ -2,8 +2,8 @@
 <nav id="menu">
 <!-- start menu -->
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Nosotros</a>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="nosotros.php">Nosotros</a>
         
         </li>
         <li><a href="#">Contacto</a></li>
@@ -12,7 +12,7 @@
             <ul>
                 <li><a href="#">Productos</a></li>
                 <li><hr></li>
-                <li><a href="#">Roles</a></li>
+                <li><a href="roles.php">Roles</a></li>
                 <li><a href="#">Usuarios</a></li>
                 
             </ul>

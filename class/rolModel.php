@@ -9,6 +9,14 @@ class rolModel extends Modelo
         parent::__construct();
     }
 
+    //metodo que muestra todos los roles de la tabla roles
+    public function getRoles()
+    {
+        $roles = $this->_db->query("SELECT id, nombre FROM roles ORDER BY nombre");
+
+        return $roles->fetchall();
+    }
+
     //metodo que consulta a la tabla roles por un rol ingresado
     public function getRolNombre($nombre)
     {
