@@ -19,6 +19,10 @@
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
+        <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
+            <p class="alert-success">El rol se ha registrado correctamente</p>
+        <?php endif; ?>
+
         <h1>Título De  Mi Primera Página</h1>
         <h4>Este es un subtítulo</h4>
         contenido principal

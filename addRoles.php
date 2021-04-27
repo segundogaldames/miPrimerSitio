@@ -18,7 +18,20 @@
             # verificar que el dato no este registrado en la tabla roles
             $row = $roles->getRolNombre($nombre);
 
-            print_r($row);exit;
+            if ($row) {
+                $msg = 'El rol ingresado ya existe... intente con otro';
+            }else {
+                //insertar el rol en la base de datos
+                $row = $roles->setRoles($nombre);
+
+                if ($row) {
+                    //crear una variable de exito
+                    $msg = 'ok';
+                    //redireccionar hacia index.php con el mensaje de la variable msg
+                    header('Location: index.php?m=' . $msg);
+                }
+            }
+            //print_r($row);exit;
         }
 
         //la funcion print_r permite imprimir datos a manera de prueba

@@ -32,6 +32,15 @@ section h1{
 }
 
 /* clases generales del sitio */
+.alert-success{
+    float: left;
+    color: darkgreen;
+    height: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: lightgreen;
+    
+}
 .btn{
     width: 120px;
     height: 40px;
