@@ -3,6 +3,7 @@ footer{
     float: left;
     height: 80px;
     background-color: rgba(245, 240, 240, 0.733);
+    margin-top: 20px;
 }
 footer p{
     color:dimgrey;
@@ -71,6 +72,13 @@ table{
 }
 .derecho{
     width: 30%;
+}
+.enlace a{
+    width: auto;
+    text-decoration: none;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
 }
 .formulario{
     float: left;

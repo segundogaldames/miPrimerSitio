@@ -59,6 +59,9 @@ echo '</pre>'; */
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <p class="enlace">
+                <a href="addRoles.php" class="btn btn-primary">Nuevo Rol</a>
+            </p>
         </div>
     </section> 
     <!-- pie de pagina del sitio -->
