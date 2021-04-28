@@ -10,6 +10,7 @@ footer p{
 h1,h2,h3,h4,h5,h6{
     color: dodgerblue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 15px;
 }
 header{
     float:left;
@@ -91,6 +92,24 @@ table{
 .izquierdo{
     width: 70%;
 }
+.table{
+    border: solid 1px;
+    border-color: #ECEAEA;
+    margin-bottom: 20px;
+}
+.table th{
+    font-weight: bold;
+}
+.table th, td{
+    padding: 10px;
+    border-bottom: 1px solid #ECEAEA;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.table tr:hover{
+    background-color: #ECEAEA;
+}
+
 .text-danger{
     color:crimson;
     font-family: Arial, Helvetica, sans-serif;

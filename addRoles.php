@@ -32,7 +32,7 @@
                     //crear una variable de exito
                     $msg = 'ok';
                     //redireccionar hacia index.php con el mensaje de la variable msg
-                    header('Location: index.php?m=' . $msg);
+                    header('Location: roles.php?m=' . $msg);
                 }
             }
             //print_r($row);exit;
