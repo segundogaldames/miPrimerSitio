@@ -81,6 +81,7 @@
                 <div class="form-group">
                     <input type="hidden" name="confirm" value="1">
                     <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="roles.php" class="btn btn-link">Volver</a>
                 </div>
             </form>
         </div>
