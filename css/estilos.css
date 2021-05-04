@@ -97,7 +97,7 @@ table{
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: middle;
 }
-.formulario{
+.contenido{
     float: left;
     width: 50%;
     margin-left: 25%;
@@ -135,9 +135,13 @@ table{
 .table tr:hover{
     background-color: #ECEAEA;
 }
-
+.text-info{
+    color:dodgerblue;
+}
 .text-danger{
     color:crimson;
+}
+.text-info, .text-danger{
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
 }

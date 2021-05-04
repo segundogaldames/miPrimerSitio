@@ -38,7 +38,7 @@ echo '</pre>'; */
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <div class="formulario">
+        <div class="contenido">
             <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
                 <p class="alert-success">El rol se ha registrado correctamente</p>
             <?php endif; ?>

@@ -17,6 +17,18 @@ class rolModel extends Modelo
         return $roles->fetchall();
     }
 
+    //metodo que consulta a la tabla roles por un rol usando el id
+    public function getRolId($id)
+    {
+        $id = (int) $id;
+
+        $rol = $this->_db->prepare("SELECT id, nombre, created_at, updated_at FROM roles WHERE id = ?");
+        $rol->bindParam(1, $id);
+        $rol->execute();
+
+        return $rol->fetch();
+    }
+
     //metodo que consulta a la tabla roles por un rol ingresado
     public function getRolNombre($nombre)
     {
