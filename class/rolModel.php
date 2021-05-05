@@ -55,4 +55,19 @@ class rolModel extends Modelo
 
         return $row; //disponiblizamos la informacion solicitada para quien la consulte
     }
+
+    //metodo que edita un rol
+    public function updateRol($id, $nombre)
+    {
+        $id = (int) $id;
+
+        $rol = $this->_db->prepare("UPDATE roles SET nombre = ?, updated_at = now() WHERE id = ? ");
+        $rol->bindParam(1, $nombre);
+        $rol->bindParam(2, $id);
+        $rol->execute();
+
+        $row = $rol->rowCount();
+
+        return $row;
+    }
 }

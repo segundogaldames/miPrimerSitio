@@ -55,13 +55,12 @@ table{
     border: 0;
     text-align: center;
     border-radius: 5px;
-    margin-top: 10px;
 }
 .btn-link{
     margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
     color: blue;
-    font-family: Arial, Helvetica, sans-serif;
 }
 .btn-link:hover{
     color: cornflowerblue;
@@ -69,10 +68,19 @@ table{
 .btn-primary{
     background-color: dodgerblue;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
 }
 .btn-primary:hover{
     background-color: cornflowerblue;
+}
+.btn-warning{
+    background-color: orange;
+    color: white; 
+}
+.btn-warning:hover{
+    background-color: peru;
+}
+.btn-link, .btn-primary, .btn-warning{
+    font-family: Arial, Helvetica, sans-serif;
 }
 .copyright{
     font-size: 18px;
