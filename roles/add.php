@@ -4,7 +4,7 @@
     error_reporting(E_ALL);
     
     //establecer la conexion con la base de datos
-    require('class/rolModel.php');
+    require('../class/rolModel.php');
 
     //creamos un objeto o instancia de la clase rolModel
     $roles = new rolModel;
@@ -51,8 +51,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <!--Aqui se ve todo el codigo por el usuario-->
@@ -60,7 +60,7 @@
     <header>
         <h1>Cabecera</h1>
         <!-- llamada a sitio menu.php -->
-        <?php include('partials/menu.php'); ?>
+        <?php include('../partials/menu.php'); ?>
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <input type="hidden" name="confirm" value="1">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="roles.php" class="btn btn-link">Volver</a>
+                    <a href="index.php" class="btn btn-link">Volver</a>
                 </div>
             </form>
         </div>
@@ -90,7 +90,7 @@
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>
-        <?php include('partials/footer.php'); ?>
+        <?php include('../partials/footer.php'); ?>
     </footer> 
     
 </body>
