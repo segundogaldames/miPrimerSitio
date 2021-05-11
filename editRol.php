@@ -13,11 +13,24 @@
     if (isset($_GET['id'])) {
         
         $id = (int) $_GET['id'];
+        
         $rol = $roles->getRolId($id);
 
         if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
 
-        
+            $nombre = trim(strip_tags($_POST['nombre']));
+
+            if (!$nombre) {
+                $msg = 'Ingrese el nombre del rol';
+            }else{
+                //procedemos a modificar el rol solicitado
+                $row = $roles->updateRol($id, $nombre);
+
+                if ($row) {
+                    $msg = 'ok';
+                    header('Location: verRol.php?id=' . $id . '&m=' . $msg);
+                }
+            }
         }
 
         /* echo '<pre>';
@@ -65,7 +78,7 @@
                     <div class="form-group">
                         <input type="hidden" name="confirm" value="1">
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <a href="verRol.php?=<?php echo $id; ?>" class="btn btn-link">Volver</a>
+                        <a href="verRol.php?id=<?php echo $id; ?>" class="btn btn-link">Volver</a>
                     </div>
                 </form>
             <?php else: ?>

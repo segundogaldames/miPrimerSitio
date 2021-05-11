@@ -42,6 +42,11 @@ echo '</pre>'; */
             <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
                 <p class="alert-success">El rol se ha registrado correctamente</p>
             <?php endif; ?>
+
+            <?php if(isset($_GET['e']) && $_GET['e'] == 'ok'): ?>
+                <p class="alert-success">El rol se ha eliminado correctamente</p>
+            <?php endif; ?>
+
             <h1>Roles</h1>
             <table class="table">
                 <thead>

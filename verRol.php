@@ -42,7 +42,7 @@
     <section>
         <div class="contenido">
             <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
-                <p class="alert-success">El rol se ha registrado correctamente</p>
+                <p class="alert-success">El rol se ha modificado correctamente</p>
             <?php endif; ?>
 
             <h1>Roles</h1>
