@@ -1,3 +1,6 @@
+<?php
+require('class/rutas.php');
+?>
 <!--Estructura del DOM (Document Object Model)-->
 <!DOCTYPE html>
 <html lang="es">

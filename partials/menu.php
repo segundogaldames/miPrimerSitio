@@ -2,8 +2,8 @@
 <nav id="menu">
 <!-- start menu -->
     <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="nosotros.php">Nosotros</a>
+        <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
+        <li><a href="<?php echo BASE_URL . 'nosotros.php' ?>">Nosotros</a>
         
         </li>
         <li><a href="#">Contacto</a></li>
