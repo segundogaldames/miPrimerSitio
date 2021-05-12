@@ -5,6 +5,7 @@
     
     //establecer la conexion con la base de datos
     require('../class/rolModel.php');
+    require('../class/rutas.php');
 
     //creamos un objeto o instancia de la clase rolModel
     $roles = new rolModel;
@@ -32,7 +33,7 @@
                     //crear una variable de exito
                     $msg = 'ok';
                     //redireccionar hacia index.php con el mensaje de la variable msg
-                    header('Location: roles.php?m=' . $msg);
+                    header('Location: index.php?m=' . $msg);
                 }
             }
             //print_r($row);exit;

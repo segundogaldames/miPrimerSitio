@@ -12,7 +12,7 @@
             <ul>
                 <li><a href="#">Productos</a></li>
                 <li><hr></li>
-                <li><a href="roles.php">Roles</a></li>
+                <li><a href="<?php echo ROLES; ?>">Roles</a></li>
                 <li><a href="#">Usuarios</a></li>
                 
             </ul>

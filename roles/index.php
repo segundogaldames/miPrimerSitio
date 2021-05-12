@@ -3,7 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require('class/rolModel.php');
+require('../class/rolModel.php');
+require('../class/rutas.php');
 
 //creamos un objeto o instancia de la clase rolModel
 $roles = new rolModel;
@@ -25,8 +26,8 @@ echo '</pre>'; */
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <!--Aqui se ve todo el codigo por el usuario-->
@@ -34,7 +35,7 @@ echo '</pre>'; */
     <header>
         <h1>Cabecera</h1>
         <!-- llamada a sitio menu.php -->
-        <?php include('partials/menu.php'); ?>
+        <?php include('../partials/menu.php'); ?>
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
@@ -60,7 +61,7 @@ echo '</pre>'; */
                         <tr>
                             <td> <?php echo $rol['id']; ?> </td>
                             <td> 
-                                <a href="verRol.php?id=<?php echo $rol['id']; ?>">
+                                <a href="show.php?id=<?php echo $rol['id']; ?>">
                                     <?php echo $rol['nombre']; ?> 
                                 </a>
                             </td>
@@ -69,13 +70,13 @@ echo '</pre>'; */
                 </tbody>
             </table>
             <p class="enlace">
-                <a href="addRoles.php" class="btn btn-primary">Nuevo Rol</a>
+                <a href="add.php" class="btn btn-primary">Nuevo Rol</a>
             </p>
         </div>
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>
-        <?php include('partials/footer.php'); ?>
+        <?php include('../partials/footer.php'); ?>
     </footer> 
     
 </body>

@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require('class/rolModel.php');
+require('../class/rolModel.php');
 
 $roles = new rolModel;
 
@@ -15,6 +15,6 @@ if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
 
     if ($row) {
         $msg = 'ok';
-        header('Location: roles.php?e=' . $msg);
+        header('Location: index.php?e=' . $msg);
     }
 }

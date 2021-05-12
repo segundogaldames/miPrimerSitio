@@ -3,7 +3,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    require('class/rolModel.php');
+    require('../class/rolModel.php');
+    require('../class/rutas.php');
 
     //verificar que la variable id enviada desde roles.php ha ingresado en esta pagina
     if (isset($_GET['id'])) {
@@ -27,8 +28,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <!--Aqui se ve todo el codigo por el usuario-->
@@ -36,7 +37,7 @@
     <header>
         <h1>Cabecera</h1>
         <!-- llamada a sitio menu.php -->
-        <?php include('partials/menu.php'); ?>
+        <?php include('../partials/menu.php'); ?>
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
@@ -79,10 +80,10 @@
                     </tr>
                 </table>
                 <p class="enlace">
-                    <a href="editRol.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar</a>
-                    <a href="roles.php" class="btn btn-link">Volver</a>
+                    <a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar</a>
+                    <a href="index.php" class="btn btn-link">Volver</a>
                     <!-- opcion de eliminacion rol via post -->
-                    <form action="deleteRol.php" method="post">
+                    <form action="delete.php" method="post">
                         <input type="hidden" name="confirm" value="1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <button type="submit" class="btn btn-warning">Eliminar</button>
@@ -95,7 +96,7 @@
     </section> 
     <!-- pie de pagina del sitio -->
     <footer>
-        <?php include('partials/footer.php'); ?>
+        <?php include('../partials/footer.php'); ?>
     </footer> 
     
 </body>
