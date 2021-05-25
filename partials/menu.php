@@ -12,6 +12,7 @@
             <ul>
                 <li><a href="#">Productos</a></li>
                 <li><hr></li>
+                <li><a href="<?php echo COMUNAS; ?>">Comunas</a></li>
                 <li><a href="<?php echo REGIONES; ?>">Regiones</a></li>
                 <li><hr></li>
                 <li><a href="<?php echo ROLES; ?>">Roles</a></li>

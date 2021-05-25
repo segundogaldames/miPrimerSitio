@@ -4,3 +4,4 @@
 define('BASE_URL','http://localhost:8888/miprimersitio/');
 define('ROLES', BASE_URL . 'roles/');
 define('REGIONES', BASE_URL . 'regiones/');
+define('COMUNAS', BASE_URL . 'comunas/');
