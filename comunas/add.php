@@ -1,7 +1,7 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
     
     //establecer la conexion con la base de datos
     require('../class/regionModel.php');
@@ -11,9 +11,9 @@
 
     //creamos un objeto o instancia de la clase regionModel
     $comunas = new comunaModel;
-    //$regiones = new regionModel;
+    $regiones = new regionModel;
 
-    //$regiones = $regiones->getRegiones();
+    $regiones = $regiones->getRegiones();
 
     //validamos que el formulario sea enviado via post
     if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {

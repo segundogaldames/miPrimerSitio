@@ -1,5 +1,5 @@
 <?php
-require('modelo.php');
+require_once('modelo.php');
 
 class rolModel extends Modelo
 {
