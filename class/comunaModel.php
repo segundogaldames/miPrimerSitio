@@ -35,12 +35,12 @@ class comunaModel extends Modelo
         return $comuna->fetch();
     }
 
-    public function setComunas($comuna, $region)
+    public function setComunas($nombre, $region)
     {
         $region = (int) $region;
 
         $comuna = $this->_db->prepare("INSERT INTO comunas VALUES(null, ?, ?, now(), now() )");
-        $comuna->bindParam(1, $comuna);
+        $comuna->bindParam(1, $nombre);
         $comuna->bindParam(2, $region);
         $comuna->execute();
 

@@ -50,6 +50,16 @@ table{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
 }
+.alert-danger{
+    float: left;
+    color: rgb(248, 7, 7);
+    height: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(245, 178, 178);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+}
 .btn{
     width: 120px;
     height: 40px;

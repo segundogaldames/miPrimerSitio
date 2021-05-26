@@ -20,19 +20,22 @@
 
         //guardaremos el nombre de la region en la variable nombre
         $nombre = trim(strip_tags($_POST['nombre'])); //sanitizar la variable nombre
+        $region = (int) $_POST['region'];
 
         //validar que la variable no este vacia
-        if (!$nombre) {
-            $msg = 'Debe ingresar el nombre de la region';
+        if (strlen($nombre) < 3) {
+            $msg = 'Ingrese el nombre de la comuna';
+        }elseif ($region <= 0) {
+            $msg = 'Seleccione una región';
         }else {
-            # verificar que el dato no este registrado en la tabla regiones
-            $row = $regiones->getRegionNombre($nombre);
+            # verificar que el dato no este registrado en la tabla comunas
+            $row = $comunas->getComunaNombre($nombre);
 
             if ($row) {
-                $msg = 'La región ingresada ya existe... intente con otra';
+                $msg = 'La comuna ingresada ya existe... intente con otra';
             }else {
                 //insertar la region en la base de datos
-                $row = $regiones->setRegiones($nombre);
+                $row = $comunas->setComunas($nombre, $region);
 
                 if ($row) {
                     //crear una variable de exito
@@ -56,7 +59,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regiones</title>
+    <title>Comunas</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
@@ -75,7 +78,7 @@
            <!--  GET => envia datos a traves de la url del navegador (URI) al servidor
             POST => envia datos de manera interna al servidor -->
             <?php if(isset($msg)): ?>
-                <p class="text-danger">
+                <p class="alert-danger">
                     <?php echo $msg; ?>
                 </p>
             <?php endif; ?>
@@ -83,7 +86,7 @@
             <form action="" method="post">
                 <div class="form-group">
                     <label for="comuna">Comuna</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre de la comuna">
+                    <input type="text" name="nombre" value="<?php if(isset($_POST['nombre'])) echo $_POST['nombre']; ?>" class="form-control" placeholder="Ingrese el nombre de la comuna">
                 </div>
                 <div class="form-group">
                     <label for="region">Región</label>
