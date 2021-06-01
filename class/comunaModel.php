@@ -11,7 +11,7 @@ class comunaModel extends Modelo
     public function getComunas()
     {
         $comunas = $this->_db->query("SELECT c.id, c.nombre, r.nombre as region FROM comunas c INNER JOIN regiones r ON c.region_id = r.id ORDER BY c.nombre");
-        
+
         return $comunas->fetchall();
     }
 
@@ -19,7 +19,7 @@ class comunaModel extends Modelo
     {
         $id = (int) $id;
 
-        $comuna = $this->_db->prepare("SELECT c.id, c.nombre, c.region_id, c.created_at, c.updated_at, r.nombre as region FROM comunas c INNER JOIN regiones r WHERE c.id = ?");
+        $comuna = $this->_db->prepare("SELECT c.id, c.nombre, c.region_id, c.created_at, c.updated_at, r.nombre as region FROM comunas c INNER JOIN regiones r ON c.region_id = r.id WHERE c.id = ?");
         $comuna->bindParam(1, $id);
         $comuna->execute();
 
