@@ -4,7 +4,7 @@
     <ul>
         <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
         <li><a href="<?php echo BASE_URL . 'nosotros.php' ?>">Nosotros</a>
-        
+
         </li>
         <li><a href="#">Contacto</a></li>
         <li><a href="#">Administración</a>
@@ -15,9 +15,10 @@
                 <li><a href="<?php echo COMUNAS; ?>">Comunas</a></li>
                 <li><a href="<?php echo REGIONES; ?>">Regiones</a></li>
                 <li><hr></li>
+                <li><a href="<?php echo PERSONAS; ?>">Personas</a></li>
                 <li><a href="<?php echo ROLES; ?>">Roles</a></li>
                 <li><a href="#">Usuarios</a></li>
-                
+
             </ul>
             <!-- end menu desplegable -->
         </li>
