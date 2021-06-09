@@ -2,7 +2,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     //establecer la conexion con la base de datos
     require('../class/regionModel.php');
     require('../class/rutas.php');
@@ -86,13 +86,13 @@
                 </div>
             </form>
         </div>
-        
-        
-    </section> 
+
+
+    </section>
     <!-- pie de pagina del sitio -->
     <footer>
         <?php include('../partials/footer.php'); ?>
-    </footer> 
-    
+    </footer>
+
 </body>
 </html>
