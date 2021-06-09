@@ -23,6 +23,11 @@
 
     //validamos que el formulario sea enviado via post
     if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
+
+        /* echo '<pre>';
+        print_r($_POST);exit;
+        echo '</pre>'; */
+
         $nombre = trim(strip_tags($_POST['nombre']));
         $rut = trim(strip_tags($_POST['rut']));
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -94,30 +99,31 @@
            <!--  GET => envia datos a traves de la url del navegador (URI) al servidor
             POST => envia datos de manera interna al servidor -->
             <?php if(isset($msg)): ?>
-                <p class="alert alert-danger">
+                <p class="alert-danger">
                     <?php echo $msg; ?>
                 </p>
             <?php endif; ?>
 
+            <h4 class="text-danger">Campos obligatorios</h4>
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre <span class="text-danger">*</span> </label>
                     <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre de la persona" value="<?php if(isset($_POST['nombre'])) echo $_POST['nombre']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="rut">RUT</label>
+                    <label for="rut">RUT <span class="text-danger">*</span></label>
                     <input type="text" name="rut" class="form-control" placeholder="Ingrese el rut de la persona" value="<?php if(isset($_POST['rut'])) echo $_POST['rut']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email <span class="text-danger">*</span></label>
                     <input type="email" name="email" class="form-control" placeholder="Ingrese el email de la persona" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="direccion">Dirección (calle y número)</label>
+                    <label for="direccion">Dirección (calle y número) <span class="text-danger">*</span></label>
                     <input type="text" name="direccion" class="form-control" placeholder="Ingrese la dirección de la persona" value="<?php if(isset($_POST['direccion'])) echo $_POST['direccion']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="comuna">Comuna</label>
+                    <label for="comuna">Comuna <span class="text-danger">*</span></label>
                     <select name="comuna" class="form-control">
                         <option value="">Seleccione...</option>
 
@@ -125,6 +131,27 @@
                         <?php foreach($comunas as $comuna): ?>
                             <option value="<?php echo $comuna['id']; ?>">
                                 <?php echo $comuna['nombre']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono <span class="text-danger">*</span></label>
+                    <input type="number" name="telefono" class="form-control" placeholder="Ingrese el teléfono de la persona" value="<?php if(isset($_POST['telefono'])) echo $_POST['telefono']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_nac">Fecha de nacimiento <span class="text-danger">*</span></label>
+                    <input type="date" name="fecha_nac" class="form-control" placeholder="Ingrese la fecha de nacimiento de la persona" value="<?php if(isset($_POST['fecha_nac'])) echo $_POST['fecha_nac']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="rol">Rol <span class="text-danger">*</span></label>
+                    <select name="rol" class="form-control">
+                        <option value="">Seleccione...</option>
+
+                        <!-- mostrar la lista de roles -->
+                        <?php foreach($roles as $rol): ?>
+                            <option value="<?php echo $rol['id']; ?>">
+                                <?php echo $rol['nombre']; ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
