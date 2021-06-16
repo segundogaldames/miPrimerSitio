@@ -1,6 +1,8 @@
 <?php
 
 require_once('modelo.php');
+require_once('config.php');
+require_once('hash.php');
 
 class UsuarioModel extends Modelo
 {
@@ -23,6 +25,8 @@ class UsuarioModel extends Modelo
     public function setUsuario($clave, $persona)
     {
         $persona = (int) $persona;
+        //encriptar la clave;
+        $clave = Hash::getHash('sha1', $clave, HASH_KEY);
 
         //activo = 1
         //inactivo = 2

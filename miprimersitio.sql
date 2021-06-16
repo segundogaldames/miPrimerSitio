@@ -116,7 +116,7 @@ CREATE TABLE `personas` (
   KEY `comuna_id` (`comuna_id`),
   CONSTRAINT `personas_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `personas_ibfk_2` FOREIGN KEY (`comuna_id`) REFERENCES `comunas` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,31 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
+INSERT INTO `personas` VALUES (1,'Juan Perez','9629547-k','juanperez@gmail.com','las delicias del paraiso 130','2021-06-07',989785623,4,2,'2021-06-09 10:49:51','2021-06-09 10:49:51'),(2,'Margarita Nuñez','20569547-2','mperez@gmail.com','Arturo Prat 0102','2021-06-02',963457890,4,1,'2021-06-09 11:19:57','2021-06-15 11:04:29');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `producto_tipos`
+--
+
+DROP TABLE IF EXISTS `producto_tipos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `producto_tipos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `producto_tipos`
+--
+
+LOCK TABLES `producto_tipos` WRITE;
+/*!40000 ALTER TABLE `producto_tipos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `producto_tipos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -179,6 +203,36 @@ LOCK TABLES `roles` WRITE;
 INSERT INTO `roles` VALUES (2,'Administrador','2021-04-27 11:10:17','2021-04-27 11:10:17'),(3,'Supervisor','2021-05-11 11:17:00','2021-05-11 11:17:11'),(4,'Cliente','2021-05-12 10:37:24','2021-05-12 10:37:24');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `clave` varchar(255) NOT NULL,
+  `activo` int NOT NULL,
+  `persona_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `persona_id` (`persona_id`),
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'5936ef284433865ea24b9f84e3f67cf45e7ee7df',1,2,'2021-06-16 11:29:27','2021-06-16 11:29:27');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -189,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02 11:44:25
+-- Dump completed on 2021-06-16 11:47:54

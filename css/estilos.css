@@ -81,7 +81,14 @@ table{
     color: white;
 }
 .btn-primary:hover{
-    background-color: cornflowerblue;
+    background-color: rgb(88, 129, 206);
+}
+.btn-success{
+    background-color: #9FBF56;
+    color: white;
+}
+.btn-success:hover{
+    background-color: #687e37;
 }
 .btn-warning{
     background-color: orange;

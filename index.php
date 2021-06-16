@@ -1,5 +1,7 @@
 <?php
 require('class/rutas.php');
+
+//echo uniqid();exit;
 ?>
 <!--Estructura del DOM (Document Object Model)-->
 <!DOCTYPE html>
@@ -31,11 +33,11 @@ require('class/rutas.php');
         contenido principal
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit excepturi, perferendis cumque iste sunt corrupti quia doloremque quidem autem laudantium tempore accusamus saepe magni repellat et tenetur exercitationem consectetur aliquid?</p>
         <a href="#">Ver Más</a>
-    </section> 
+    </section>
     <!-- pie de pagina del sitio -->
     <footer>
         <?php include('partials/footer.php'); ?>
-    </footer> 
-    
+    </footer>
+
 </body>
 </html>

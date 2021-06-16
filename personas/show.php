@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
 
     require('../class/personaModel.php');
+    require('../class/usuarioModel.php');
     require('../class/rutas.php');
 
     //verificar que la variable id enviada desde index.php ha ingresado en esta pagina
@@ -12,7 +13,11 @@
         $id = (int) $_GET['id']; //parseamos la variable id obligandola a que sea un numero entero
 
         $personas = new PersonaModel;
+        $usuarios = new UsuarioModel;
+
         $persona = $personas->getPersonaId($id);
+
+        $usuario = $usuarios->getUsuarioPersona($id);
 
         /* echo '<pre>';
         print_r($persona);exit;
@@ -44,6 +49,14 @@
         <div class="contenido">
             <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
                 <p class="alert-success">La persona se ha modificado correctamente</p>
+            <?php endif; ?>
+
+            <?php if(isset($_GET['u']) && $_GET['u'] == 'ok'): ?>
+                <p class="alert-success">La cuenta de usuario se ha creado correctamente</p>
+            <?php endif; ?>
+
+            <?php if(isset($_GET['e']) && $_GET['e'] == 'error'): ?>
+                <p class="alert-danger">Ya existe una cuenta de usuario para esta persona</p>
             <?php endif; ?>
 
             <h1>Personas</h1>
@@ -101,6 +114,14 @@
                 </table>
                 <p class="enlace">
                     <a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar</a>
+
+                    <?php if(empty($usuario)): ?>
+                        <a href="../usuarios/add.php?id_persona=<?php echo $id; ?>" class="btn btn-success">Crear Cuenta</a>
+                    <?php else: ?>
+                        <a href="#" class="btn btn-success">Editar Password</a>
+                    <?php endif; ?>
+
+
                     <a href="index.php" class="btn btn-link">Volver</a>
                 </p>
             <?php else: ?>
