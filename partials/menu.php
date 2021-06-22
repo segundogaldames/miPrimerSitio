@@ -22,6 +22,12 @@
             </ul>
             <!-- end menu desplegable -->
         </li>
+        <!-- preguntar si el usuario ha iniciado sesion -->
+        <?php if(!isset($_SESSION['autenticado'])): ?>
+            <a href="<?php echo USUARIOS . 'login.php'; ?>">Login</a>
+        <?php else: ?>
+            <a href="<?php echo USUARIOS . '#'; ?>">Logout</a>
+        <?php endif; ?>
     </ul>
     <!-- end menu -->
 </nav>

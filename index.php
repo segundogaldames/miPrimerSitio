@@ -1,5 +1,10 @@
 <?php
 require('class/rutas.php');
+require('class/usuarioModel.php');
+
+$usuarios = new UsuarioModel;
+
+//print_r($_SESSION);exit;
 
 //echo uniqid();exit;
 ?>
@@ -26,6 +31,10 @@ require('class/rutas.php');
     <section>
         <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
             <p class="alert-success">El rol se ha registrado correctamente</p>
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION['autenticado'])): ?>
+            <h4>Bienvenido@ <?php echo $_SESSION['usuario_nombre']; ?></h4>
         <?php endif; ?>
 
         <h1>Título De  Mi Primera Página</h1>
