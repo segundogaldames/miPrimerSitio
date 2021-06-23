@@ -153,6 +153,40 @@ LOCK TABLES `producto_tipos` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sku` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `precio` int NOT NULL,
+  `activo` int NOT NULL,
+  `marca_id` int NOT NULL,
+  `producto_tipo_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `marca_id` (`marca_id`),
+  KEY `producto_tipo_id` (`producto_tipo_id`),
+  CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`),
+  CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`producto_tipo_id`) REFERENCES `producto_tipos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos`
+--
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `regiones`
 --
 
@@ -230,7 +264,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'5936ef284433865ea24b9f84e3f67cf45e7ee7df',1,2,'2021-06-16 11:29:27','2021-06-16 11:29:27');
+INSERT INTO `usuarios` VALUES (1,'mnunez.123',1,2,'2021-06-16 11:29:27','2021-06-23 11:30:34');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -243,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-16 11:47:54
+-- Dump completed on 2021-06-23 11:45:15

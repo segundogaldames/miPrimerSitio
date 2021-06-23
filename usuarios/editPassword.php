@@ -8,36 +8,40 @@
     require('../class/session.php');
     require('../class/rutas.php');
 
-
     //creamos un objeto o instancia de la clase regionModel
     $usuarios = new UsuarioModel;
     $session = new Session;
 
-    if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
-        print_r($_POST);exit;
-        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-        $clave = trim(strip_tags($_POST['clave']));
+    if (isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
 
-        if (!$email) {
-            $msg = 'Ingrese un email válido';
-        }elseif (!$clave) {
-            $msg = 'Ingrese su password';
-        }else {
-            //preguntamos por el usuario y clave registrados
-            $row = $usuarios->getUsuarioLogin($email, $clave);
+        $usuario = $usuarios->getUsuarioId($id);
+        //print_r($usuario);exit;
 
-            if (!$row) {
-                $msg = 'El email o la password ingresados no existen';
-            }else{
-                //creamos el login usando variables de sesion
-                $id_usuario = $row['id'];
-                $nom_usuario = $row['nombre'];
-                $rol = $row['rol'];
+        //validamos que el formulario sea enviado via post
+        if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
 
-                $session->login($id_usuario, $nom_usuario, $rol);
+            //guardaremos el nombre de la region en la variable nombre
+            $clave = trim(strip_tags($_POST['clave'])); //sanitizar la variable nombre
+            $reclave = trim(strip_tags($_POST['reclave']));
 
-                header('Location: ' . BASE_URL);
+            //validar que la variable no este vacia
+            if (strlen($clave) < 8) {
+                $msg = 'Debe ingresar un password de al menos 8 caracteres';
+            }elseif ($reclave != $clave) {
+                $msg = 'Los passwords ingresados no coinciden';
+            }else {
+                //actualizamos password
+                $row = $usuarios->updatePassword($id, $clave);
+
+                if($row){
+                    $_SESSION['success'] = 'El password se ha modificado correctamente';
+                    header('Location: ' . PERSONAS . 'show.php?id=' . $usuario['persona_id']);
+                }
             }
+
+            //la funcion print_r permite imprimir datos a manera de prueba
+            //print_r($nombre);exit;
         }
     }
 
@@ -50,7 +54,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Usuarios</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
@@ -64,7 +68,7 @@
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <h1>Login</h1>
+        <h1>Editar Password</h1>
         <div class="contenido">
            <!--  GET => envia datos a traves de la url del navegador (URI) al servidor
             POST => envia datos de manera interna al servidor -->
@@ -76,18 +80,19 @@
 
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Ingrese su correo electrónico">
+                    <label for="password">Password</label>
+                    <input type="password" name="clave" class="form-control" placeholder="Ingrese el password de la cuenta">
 
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="clave" class="form-control" placeholder="Ingrese su password">
+                    <label for="repassword">Confirmar password</label>
+                    <input type="password" name="reclave" class="form-control" placeholder="Ingrese el password de la cuenta nuevamente">
 
                 </div>
                 <div class="form-group">
                     <input type="hidden" name="confirm" value="1">
-                    <button type="submit" class="btn btn-primary">Iniciar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="../personas/show.php?id=<?php echo $id_persona; ?>" class="btn btn-link">Volver</a>
                 </div>
             </form>
         </div>

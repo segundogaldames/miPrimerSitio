@@ -8,7 +8,18 @@ class UsuarioModel extends Modelo
 {
     public function __construct(){
         parent::__construct();
-        session_start();
+        //session_start();
+    }
+
+    public function getUsuarioId($id)
+    {
+        $id = (int) $id;
+
+        $usuario = $this->_db->prepare("SELECT id, persona_id FROM usuarios WHERE id = ?");
+        $usuario->bindParam(1, $id);
+        $usuario->execute();
+
+        return $usuario->fetch();
     }
 
     //metodo que consulte por el usuario y clave de un usuario
@@ -51,6 +62,20 @@ class UsuarioModel extends Modelo
         $usuario->execute();
 
         $row = $usuario->rowCount();
+        return $row;
+    }
+
+    public function updatePassword($id, $clave)
+    {
+        $id = (int) $id;
+
+        $usuario = $this->_db->prepare("UPDATE usuarios SET clave = ?, updated_at = now() WHERE id = ?");
+        $usuario->bindParam(1, $clave);
+        $usuario->bindParam(2, $id);
+        $usuario->execute();
+
+        $row = $usuario->rowCount();
+
         return $row;
     }
 }

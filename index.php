@@ -1,8 +1,8 @@
 <?php
 require('class/rutas.php');
-require('class/usuarioModel.php');
+require('class/session.php');
 
-$usuarios = new UsuarioModel;
+$session = new Session;
 
 //print_r($_SESSION);exit;
 

@@ -5,6 +5,7 @@
 
     require('../class/personaModel.php');
     require('../class/usuarioModel.php');
+    require('../class/session.php');
     require('../class/rutas.php');
 
     //verificar que la variable id enviada desde index.php ha ingresado en esta pagina
@@ -14,6 +15,7 @@
 
         $personas = new PersonaModel;
         $usuarios = new UsuarioModel;
+        $session = new Session;
 
         $persona = $personas->getPersonaId($id);
 
@@ -57,6 +59,10 @@
 
             <?php if(isset($_GET['e']) && $_GET['e'] == 'error'): ?>
                 <p class="alert-danger">Ya existe una cuenta de usuario para esta persona</p>
+            <?php endif; ?>
+
+            <?php if(isset($_SESSION['success'])): ?>
+                <p class="alert-success"><?php echo $_SESSION['success']; ?></p>
             <?php endif; ?>
 
             <h1>Personas</h1>
@@ -118,7 +124,7 @@
                     <?php if(empty($usuario)): ?>
                         <a href="../usuarios/add.php?id_persona=<?php echo $id; ?>" class="btn btn-success">Crear Cuenta</a>
                     <?php else: ?>
-                        <a href="#" class="btn btn-success">Editar Password</a>
+                        <a href="../usuarios/editPassword.php?id=<?php echo $usuario['id']; ?>" class="btn btn-success">Editar Password</a>
                     <?php endif; ?>
 
 
