@@ -12,21 +12,20 @@
     $session = new Session;
     $usuarios = new UsuarioModel;
 
-    if (isset($_GET['id_persona'])) {
-        $id_persona = (int) $_GET['id_persona'];
+    if (isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
+
+        $usuario = $usuarios->getUsuarioId($id);
 
         //validamos que el formulario sea enviado via post
         if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
 
             //guardaremos el nombre de la region en la variable nombre
-            $clave = trim(strip_tags($_POST['clave'])); //sanitizar la variable nombre
-            $reclave = trim(strip_tags($_POST['reclave']));
+            $activo = filter_var($_POST['activo'], FILTER_VALIDATE_INT);
 
             //validar que la variable no este vacia
-            if (strlen($clave) < 8) {
-                $msg = 'Debe ingresar un password de al menos 8 caracteres';
-            }elseif ($reclave != $clave) {
-                $msg = 'Los passwords ingresados no coinciden';
+            if (!$activo) {
+                $msg = 'Seleccione un estado';
             }else {
                 #verificar que laa persona ingresada no tenga una cuenta
                 $row = $usuarios->getUsuarioPersona($id_persona);

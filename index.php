@@ -29,9 +29,7 @@ $session = new Session;
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
-            <p class="alert-success">El rol se ha registrado correctamente</p>
-        <?php endif; ?>
+        <?php include('partials/mensajes.php'); ?>
 
         <?php if(isset($_SESSION['autenticado'])): ?>
             <h4>Bienvenido@ <?php echo $_SESSION['usuario_nombre']; ?></h4>

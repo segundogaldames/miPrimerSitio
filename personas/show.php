@@ -49,21 +49,8 @@
     <!-- cuerpo central de la pagina web -->
     <section>
         <div class="contenido">
-            <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
-                <p class="alert-success">La persona se ha modificado correctamente</p>
-            <?php endif; ?>
 
-            <?php if(isset($_GET['u']) && $_GET['u'] == 'ok'): ?>
-                <p class="alert-success">La cuenta de usuario se ha creado correctamente</p>
-            <?php endif; ?>
-
-            <?php if(isset($_GET['e']) && $_GET['e'] == 'error'): ?>
-                <p class="alert-danger">Ya existe una cuenta de usuario para esta persona</p>
-            <?php endif; ?>
-
-            <?php if(isset($_SESSION['success'])): ?>
-                <p class="alert-success"><?php echo $_SESSION['success']; ?></p>
-            <?php endif; ?>
+           <?php include('../partials/mensajes.php'); ?>
 
             <h1>Personas</h1>
             <!-- verificar que el arreglo rol tenga datos -->
@@ -96,6 +83,21 @@
                     <tr>
                         <th>Rol:</th>
                         <td> <?php echo $persona['rol']; ?> </td>
+                    </tr>
+                    <tr>
+                        <th>Activo:</th>
+                        <td>
+                            <?php if(!empty($usuario)): ?>
+                                <?php if($usuario['activo'] == 1): ?>
+                                    Si
+                                <?php else: ?>
+                                    No
+                                <?php endif; ?>
+                                 | <a href="<?php echo USUARIOS . 'edit.php?id=' . $usuario['id']; ?>">Modificar</a>
+                            <?php else: ?>
+                                <span class="text-danger">Cuenta no creada</span>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Creado:</th>

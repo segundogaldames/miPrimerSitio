@@ -5,8 +5,10 @@ error_reporting(E_ALL);
 
 require('../class/personaModel.php');
 require('../class/rutas.php');
+require('../class/session.php');
 
 //creamos un objeto o instancia de la clase personaModel
+$session = new Session;
 $personas = new PersonaModel;
 
 //disponibilizacion de todas las personas
@@ -40,13 +42,8 @@ echo '</pre>'; */
     <!-- cuerpo central de la pagina web -->
     <section>
         <div class="contenido">
-            <?php if(isset($_GET['m']) && $_GET['m'] == 'ok'): ?>
-                <p class="alert-success">La persona se ha registrado correctamente</p>
-            <?php endif; ?>
 
-            <?php if(isset($_GET['e']) && $_GET['e'] == 'ok'): ?>
-                <p class="alert-success">La persona se ha eliminado correctamente</p>
-            <?php endif; ?>
+            <?php include('../partials/mensajes.php'); ?>
 
             <h1>Personas</h1>
             <table class="table">

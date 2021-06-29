@@ -9,8 +9,10 @@
     require('../class/rolModel.php');
     require('../class/comunaModel.php');
     require('../class/rutas.php');
+    require('../class/session.php');
 
     //creamos objetos de las clases que se necesitan para registrar personas
+    $session = new Session;
     $personas = new PersonaModel;
     $roles = new rolModel;
     $comunas = new comunaModel;
@@ -65,8 +67,8 @@
                 $persona = $personas->setPersona($nombre, $rut, $email, $direccion, $fecha_nac, $telefono, $rol, $comuna);
 
                 if ($persona) {
-                    $msg = 'ok';
-                    header('Location: index.php?m=' . $msg);
+                    $_SESSION['success'] = 'La persona se ha registrado correctamente';
+                    header('Location: index.php');
                 }
             }
         }

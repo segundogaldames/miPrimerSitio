@@ -14,7 +14,7 @@
     $session = new Session;
 
     if (isset($_POST['confirm']) && $_POST['confirm'] == 1) {
-        print_r($_POST);exit;
+        //print_r($_POST);exit;
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
         $clave = trim(strip_tags($_POST['clave']));
 

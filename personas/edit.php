@@ -8,8 +8,10 @@
     require('../class/rolModel.php');
     require('../class/comunaModel.php');
     require('../class/rutas.php');
+    require('../class/session.php');
 
     //creamos un objeto o instancia de la clase personaModel, rolModel y comunaModel
+    $session = new Session;
     $personas = new PersonaModel;
     $roles = new rolModel;
     $comunas = new comunaModel;
@@ -60,8 +62,8 @@
                 $row = $personas->updatePersona($id, $nombre, $rut, $email, $direccion, $fecha_nac, $telefono, $rol, $comuna);
 
                 if ($row) {
-                    $msg = 'ok';
-                    header('Location: show.php?id=' . $id . '&m=' . $msg);
+                    $_SESSION['success'] = 'La persona se ha modificado correctamente';
+                    header('Location: show.php?id=' . $id);
                 }
             }
 
