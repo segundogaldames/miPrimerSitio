@@ -20,6 +20,7 @@ echo '</pre>'; */
 
 
 ?>
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] != 'Cliente'): ?>
 <!--Estructura del DOM (Document Object Model)-->
 <!DOCTYPE html>
 <html lang="es">
@@ -80,3 +81,9 @@ echo '</pre>'; */
 
 </body>
 </html>
+<?php else: ?>
+    <script>
+        //alert('Acceso indebido');
+        window.location="<?php echo BASE_URL; ?>";
+    </script>
+<?php endif; ?>

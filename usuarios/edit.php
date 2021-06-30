@@ -27,20 +27,12 @@
             if (!$activo) {
                 $msg = 'Seleccione un estado';
             }else {
-                #verificar que laa persona ingresada no tenga una cuenta
-                $row = $usuarios->getUsuarioPersona($id_persona);
+                //actualizar o modificar el estado del usuario
+                $row = $usuarios->updateEstado($id, $activo);
 
                 if ($row) {
-                    $msg = 'error';
-                    header('Location: ../personas/show.php?id=' . $id_persona . '&e=' . $msg);
-                }else{
-                    #registrar una cuenta de usuario
-                    $row = $usuarios->setUsuario($clave, $id_persona);
-
-                    if ($row) {
-                        $_SESSION['success'] = 'La cuenta de usuario se ha creado correctamente';
-                        header('Location: ../personas/show.php?id=' . $id_persona);
-                    }
+                    $_SESSION['success'] = 'El estado se ha modificado correctamente';
+                    header('Location: ' . PERSONAS . 'show.php?id=' . $usuario['persona_id']);
                 }
             }
 
@@ -72,7 +64,7 @@
     </header>
     <!-- cuerpo central de la pagina web -->
     <section>
-        <h1>Nueva Cuenta de Usuario</h1>
+        <h1>Editar Estado de Usuario</h1>
         <div class="contenido">
            <!--  GET => envia datos a traves de la url del navegador (URI) al servidor
             POST => envia datos de manera interna al servidor -->
@@ -82,23 +74,32 @@
                 </p>
             <?php endif; ?>
 
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="clave" class="form-control" placeholder="Ingrese el password de la cuenta">
+            <?php if($usuario): ?>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="activo">Estado</label>
+                        <select name="activo" class="form-control">
+                            <option value="<?php echo $usuario['activo']; ?>">
+                                <?php if($usuario['activo'] == 1): ?>
+                                    Activo
+                                <?php else: ?>
+                                    Inactivo
+                                <?php endif; ?>
+                            </option>
 
-                </div>
-                <div class="form-group">
-                    <label for="repassword">Confirmar password</label>
-                    <input type="password" name="reclave" class="form-control" placeholder="Ingrese el password de la cuenta nuevamente">
-
-                </div>
-                <div class="form-group">
-                    <input type="hidden" name="confirm" value="1">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="../personas/show.php?id=<?php echo $id_persona; ?>" class="btn btn-link">Volver</a>
-                </div>
-            </form>
+                            <option value="1">Activar</option>
+                            <option value="2">Desactivar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="confirm" value="1">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="../personas/show.php?id=<?php echo $usuario['persona_id']; ?>" class="btn btn-link">Volver</a>
+                    </div>
+                </form>
+            <?php else: ?>
+                <p class="text-info">El dato no existe</p>
+            <?php endif; ?>
         </div>
 
 
