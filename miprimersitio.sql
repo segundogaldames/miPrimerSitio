@@ -68,6 +68,38 @@ INSERT INTO `comunas` VALUES (1,'Santiago',2,'2021-05-26 11:02:30','2021-06-01 1
 UNLOCK TABLES;
 
 --
+-- Table structure for table `imagenes`
+--
+
+DROP TABLE IF EXISTS `imagenes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `imagenes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
+  `activo` int NOT NULL,
+  `portada` int NOT NULL,
+  `producto_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `producto_id` (`producto_id`),
+  CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imagenes`
+--
+
+LOCK TABLES `imagenes` WRITE;
+/*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `marcas`
 --
 
@@ -116,7 +148,7 @@ CREATE TABLE `personas` (
   KEY `comuna_id` (`comuna_id`),
   CONSTRAINT `personas_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `personas_ibfk_2` FOREIGN KEY (`comuna_id`) REFERENCES `comunas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +157,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'Juan Perez','9629547-k','juanperez@gmail.com','las delicias del paraiso 130','2021-06-07',989785623,4,2,'2021-06-09 10:49:51','2021-06-09 10:49:51'),(2,'Margarita Nuñez','20569547-2','mperez@gmail.com','Arturo Prat 0102','2021-06-02',963457890,4,1,'2021-06-09 11:19:57','2021-06-15 11:04:29');
+INSERT INTO `personas` VALUES (1,'Juan Perez','9629547-k','juanperez@gmail.com','las delicias del paraiso 130','2021-06-07',989785623,3,2,'2021-06-09 10:49:51','2021-07-06 10:40:11'),(2,'Margarita Nuñez','20569547-2','mperez@gmail.com','Arturo Prat 0102','2021-06-02',963457890,4,2,'2021-06-09 11:19:57','2021-06-29 11:12:37'),(3,'segundo galdames','12568791-0','sgaldamesh@gmail.com','honduras 819','2021-06-29',987635243,2,1,'2021-06-30 10:56:05','2021-06-30 10:56:05'),(4,'Elisa Loncon','12568741-9','iloncon@constituyentes.cl','Agustinas 999','2021-06-28',986321457,4,1,'2021-07-06 10:41:51','2021-07-06 10:52:09');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,7 +287,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   KEY `persona_id` (`persona_id`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,7 +296,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'mnunez.123',1,2,'2021-06-16 11:29:27','2021-06-23 11:30:34');
+INSERT INTO `usuarios` VALUES (1,'5936ef284433865ea24b9f84e3f67cf45e7ee7df',1,2,'2021-06-16 11:29:27','2021-06-30 10:45:13'),(2,'a6d99974e32c229a0bc8dd746dcd771ab5817870',1,3,'2021-06-30 10:56:33','2021-06-30 10:56:33'),(3,'5936ef284433865ea24b9f84e3f67cf45e7ee7df',1,1,'2021-07-06 10:39:55','2021-07-06 11:27:05');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -277,4 +309,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-23 11:45:15
+-- Dump completed on 2021-07-06 12:28:59

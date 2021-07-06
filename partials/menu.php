@@ -26,10 +26,16 @@
         <?php endif; ?>
         <!-- preguntar si el usuario ha iniciado sesion -->
         <?php if(!isset($_SESSION['autenticado'])): ?>
-            <a href="<?php echo USUARIOS . 'login.php'; ?>">Login</a>
+            <li><a href="<?php echo USUARIOS . 'login.php'; ?>">Login</a></li>
         <?php else: ?>
-            <a href="<?php echo USUARIOS . 'logout.php'; ?>">Logout</a>
-            <a href="<?php echo USUARIOS . 'editPassword.php?id=' . $_SESSION['usuario_id']; ?>">Cambiar Password</a>
+            <li><a href="#" style="color:blue"><?php echo ucwords($_SESSION['usuario_nombre']); ?></a>
+                <ul>
+                    <li>
+                        <a href="<?php echo USUARIOS . 'editPassword.php?id=' . $_SESSION['usuario_id']; ?>">Cambiar Password</a>
+                    </li>
+                    <li><a href="<?php echo USUARIOS . 'logout.php'; ?>">Logout</a></li>
+                </ul>
+            </li>
         <?php endif; ?>
     </ul>
     <!-- end menu -->
