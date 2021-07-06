@@ -70,7 +70,9 @@ echo '</pre>'; */
                 </tbody>
             </table>
             <p class="enlace">
-                <a href="add.php" class="btn btn-primary">Nueva Persona</a>
+                <?php if($_SESSION['usuario_rol'] == 'Administrador'): ?>
+                    <a href="add.php" class="btn btn-primary">Nueva Persona</a>
+                <?php endif; ?>
             </p>
         </div>
     </section>

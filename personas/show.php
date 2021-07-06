@@ -26,7 +26,7 @@
         echo '</pre>'; */
     }
 ?>
-
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] != 'Cliente'): ?>
 <!--Estructura del DOM (Document Object Model)-->
 <!DOCTYPE html>
 <html lang="es">
@@ -93,7 +93,9 @@
                                 <?php else: ?>
                                     No
                                 <?php endif; ?>
-                                 | <a href="<?php echo USUARIOS . 'edit.php?id=' . $usuario['id']; ?>">Modificar</a>
+                                    <?php if($_SESSION['usuario_rol'] == 'Administraador'): ?>
+                                        | <a href="<?php echo USUARIOS . 'edit.php?id=' . $usuario['id']; ?>">Modificar</a>
+                                    <?php endif; ?>
                             <?php else: ?>
                                 <span class="text-danger">Cuenta no creada</span>
                             <?php endif; ?>
@@ -121,12 +123,20 @@
                     </tr>
                 </table>
                 <p class="enlace">
-                    <a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar</a>
+                    <?php if($_SESSION['usuario_rol'] == 'Administrador'): ?>
+                        <a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar</a>
+                    <?php endif; ?>
 
-                    <?php if(empty($usuario)): ?>
-                        <a href="../usuarios/add.php?id_persona=<?php echo $id; ?>" class="btn btn-success">Crear Cuenta</a>
-                    <?php else: ?>
-                        <a href="../usuarios/editPassword.php?id=<?php echo $usuario['id']; ?>" class="btn btn-success">Editar Password</a>
+                    <?php if($_SESSION['usuario_rol'] == 'Administrador'): ?>
+                        <?php if(empty($usuario)): ?>
+
+                                <a href="../usuarios/add.php?id_persona=<?php echo $id; ?>" class="btn btn-success">Crear Cuenta</a>
+
+                        <?php else: ?>
+
+                                <a href="../usuarios/editPassword.php?id=<?php echo $usuario['id']; ?>" class="btn btn-success">Editar Password</a>
+
+                        <?php endif; ?>
                     <?php endif; ?>
 
 
@@ -144,3 +154,6 @@
 
 </body>
 </html>
+<?php else: ?>
+    <?php header('Location: ' . BASE_URL); ?>
+<?php endif; ?>

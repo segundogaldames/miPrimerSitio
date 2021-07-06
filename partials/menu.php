@@ -7,7 +7,7 @@
 
         </li>
         <li><a href="#">Contacto</a></li>
-        <?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador'): ?>
+        <?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] != 'Cliente'): ?>
             <li><a href="#">Administración</a>
                 <!-- start menu desplegable -->
                 <ul>
@@ -29,6 +29,7 @@
             <a href="<?php echo USUARIOS . 'login.php'; ?>">Login</a>
         <?php else: ?>
             <a href="<?php echo USUARIOS . 'logout.php'; ?>">Logout</a>
+            <a href="<?php echo USUARIOS . 'editPassword.php?id=' . $_SESSION['usuario_id']; ?>">Cambiar Password</a>
         <?php endif; ?>
     </ul>
     <!-- end menu -->

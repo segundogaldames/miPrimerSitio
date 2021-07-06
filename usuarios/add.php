@@ -51,7 +51,7 @@
     }
 
 ?>
-
+<?php if(isset($_SESSION['autenticado']) && $_SESSION['usuario_rol'] == 'Administrador'): ?>
 <!--Estructura del DOM (Document Object Model)-->
 <!DOCTYPE html>
 <html lang="es">
@@ -111,3 +111,6 @@
 
 </body>
 </html>
+<?php else:?>
+    <?php header('Location: ' . BASE_URL); ?>
+<?php endif; ?>
