@@ -20,11 +20,12 @@ class ImagenModel extends Modelo
     }
 
     public function getImagenNombre($imagen){
-        $imagen = $this->_db->prepare("SELECT id FROM imagenes WHERE imagen = ?");
-        $imagen->bindParam(1, $imagen);
-        $imagen->execute();
+        //print_r($imagen);
+        $img = $this->_db->prepare("SELECT id FROM imagenes WHERE imagen = ?");
+        $img->bindParam(1, $imagen);
+        $img->execute();
 
-        return $imagen->fetch();
+        return $img->fetch();
     }
 
     //lista de imagenes por producto
@@ -52,15 +53,15 @@ class ImagenModel extends Modelo
         $portada = (int) $portada;
         $producto = (int) $producto;
 
-        $imagen = $this->_db->prepare("INSERT INTO imagenes(titulo, descripcion, imagen, activo, portada, producto_id, created_at, updated_at) VALUES(?, ?, ?, 1, ?, ?, now(), now() )");
-        $imagen->bindParam(1, $titulo);
-        $imagen->bindParam(2, $descripcion);
-        $imagen->bindParam(3, $imagen);
-        $imagen->bindParam(4, $portada);
-        $imagen->bindParam(5, $producto);
-        $imagen->execute();
+        $img = $this->_db->prepare("INSERT INTO imagenes(titulo, descripcion, imagen, activo, portada, producto_id, created_at, updated_at) VALUES(?, ?, ?, 1, ?, ?, now(), now() )");
+        $img->bindParam(1, $titulo);
+        $img->bindParam(2, $descripcion);
+        $img->bindParam(3, $imagen);
+        $img->bindParam(4, $portada);
+        $img->bindParam(5, $producto);
+        $img->execute();
 
-        $row = $imagen->rowCount();
+        $row = $img->rowCount();
 
         return $row;
     }

@@ -52,10 +52,12 @@
                 }
 
                 //directorio en donde se guardara la imagen
-                $upload = $_SERVER['DOCUMENT_ROOT'] . '/miPrimerSitio/productos/img';
+                $upload = $_SERVER['DOCUMENT_ROOT'] . '/miPrimerSitio/productos/img/';
+                //print_r($upload);
 
                 //definir la forma de guardado del archivo en el directorio
                 $fichero = $upload . basename($_FILES['imagen']['name']);
+                //print_r($fichero);exit;
 
                 //validamos que el archivo se haya movido al servidor
                 if (move_uploaded_file($_FILES['imagen']['tmp_name'], $fichero)) {
