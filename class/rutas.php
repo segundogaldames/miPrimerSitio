@@ -11,4 +11,5 @@ define('MARCAS', BASE_URL . 'marcas/');
 define('ATRIBUTOS', BASE_URL . 'atributos/');
 define('TIPOS', BASE_URL . 'tipos/');
 define('PRODUCTOS', BASE_URL . 'productos/');
+define('IMAGENES', BASE_URL . 'imagenes/');
 

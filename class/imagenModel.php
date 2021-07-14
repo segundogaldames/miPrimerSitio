@@ -2,7 +2,7 @@
 
 require_once('modelo.php');
 
-class ImagenModelo extends Modelo
+class ImagenModel extends Modelo
 {
     public function __construct()
     {
@@ -19,6 +19,14 @@ class ImagenModelo extends Modelo
         return $imagen->fetch();
     }
 
+    public function getImagenNombre($imagen){
+        $imagen = $this->_db->prepare("SELECT id FROM imagenes WHERE imagen = ?");
+        $imagen->bindParam(1, $imagen);
+        $imagen->execute();
+
+        return $imagen->fetch();
+    }
+
     //lista de imagenes por producto
     public function getImagenesProducto($producto){
         $producto = (int) $producto;
@@ -28,6 +36,16 @@ class ImagenModelo extends Modelo
         $imagen->execute();
 
         return $imagen->fetchall();
+    }
+
+    public function getImagenPortada($producto){
+        $producto = (int) $producto;
+
+        $imagen = $this->_db->prepare("SELECT id FROM imagenes WHERE portada = 1 AND producto_id = ?");
+        $imagen->bindParam(1, $producto);
+        $imagen->execute();
+
+        return $imagen->fetch();
     }
 
     public function setImagen($titulo, $descripcion, $imagen, $portada, $producto){
